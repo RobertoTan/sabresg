@@ -3923,6 +3923,7 @@ a.subdued {
     .bar.bar-light.bar-footer {
       background-image: linear-gradient(180deg, #ddd, #ddd 50%, transparent 50%); }
   .bar.bar-stable {
+    border-bottom-width: 3px; 
     border-color: #b2b2b2;
     background-color: #ffffff;
     background-image: linear-gradient(0deg, #b2b2b2, #b2b2b2 50%, transparent 50%);
@@ -4004,15 +4005,15 @@ a.subdued {
     overflow: hidden;
     margin: 0 10px;
     min-width: 30px;
-    height: 43px;
+    height: 60px;
     text-align: center;
     text-overflow: ellipsis;
     white-space: nowrap;
     font-size: 17px;
     font-weight: 500;
-    line-height: 44px; }
+    line-height: 60px; }
     .bar .title.title-left {
-      text-align: left; }
+      left: 0px !important; }
     .bar .title.title-right {
       text-align: right; }
   .bar .title a {
@@ -5994,7 +5995,7 @@ button.item.item-complex {
 .item-radio .item-content {
   position: relative;
   z-index: 2;
-  padding: 16px 49px 16px 16px;
+  padding: 20px 44px 20px 20px;
   border: none;
   background-color: #fff; }
 
@@ -6608,7 +6609,7 @@ button.item.item-button-right {
  */
 .list {
   position: relative;
-  padding-top: 1px;
+  padding-top: 16px;
   padding-bottom: 1px;
   padding-left: 0;
   margin-bottom: 20px; }
