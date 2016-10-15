@@ -9,105 +9,42 @@ var Post = mongoose.model('Post');
 var Comment = mongoose.model('Comment');
 var User = mongoose.model('User');
 
+// Controllers
+var ctrlPastTrips = require('../controllers/trips/pastTrips.controller.js');
+var ctrlSurvey = require('../controllers/survey.controllers.js');
+var ctrlNewTrips = require('../controllers/trips/')
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
-});
 
-router.get('/posts',function(req,res,next){
-  Post.find(function(err,posts) {
-    if(err){return next(err);}
-    
-    res.json(posts);
-  });
-});
+// TRIPS ROUTES
+router
+  .route('/pastTrips')
+  .get(ctrlTrips.pastTripsGetAll)
+  .post(ctrlTrips.pastTripsAddOne);
 
-router.post('/posts',auth,function(req, res, next){
-    var post = new Post(req.body);
-    post.author = req.payload.username;
-    
-    post.save(function(err, post){
-      if(err){return next(err);}
-      
-      res.json(post);
-    });
-});
+// SURVEY ROUTES
+router
+  .route('/survey')
+  .get(ctrlSurvey.questionsGetOne);
 
+// COUNTRIES ROUTES
+router
+  .route('/selectCountries')
+  .get(ctrlCountries.countriesGetAll)
 
-router.param('post',function (req, res, next, id) {
-  var query = Post.findById(id);
-  
-  query.exec(function(err,post){
-    if (err) { return next(err); }
-    if (!post) { return next(new Error('can\'t find post')); }
-    
-    req.post = post;
-    return next();
-  });
-});
+router
+  .route('/selectCountry/:countryId')
+  .get(ctrlCountries.countriesGetOne);
 
-router.delete('/posts/:post', auth, function(req, res, next){
-  Post.findByIdAndRemove(req.post._id, function(err, post){
-    if(err) {return next(err);}
-    res.json(post);    
-  });
-});
-
-router.get('/posts/:post', function(req, res, next){
-  req.post.populate('comments', function(err, post){
-    if (err) {return next(err); }
-    
-    res.json(post);
-  });
-});
-
-router.put('/posts/:post/upvote',auth,function(req, res, next){
-  req.post.upvote(function(err,post){
-    if(err){return next(err);}
-    
-    res.json(post);
-  })
-});
+// POINTS OF INTEREST ROUTES
+router
+  .route('/selectCountry/:countryId/:themeId')
+  .get(ctrlPois.poiGetAll);
 
 
-router.post('/posts/:post/comments',auth, function(req, res, next){
-  var comment = new Comment(req.body);
-  comment.post = req.post;
-  comment.author = req.payload.username;
-  
-  comment.save(function(err, comment){
-    if(err){ return next(err); }
-    
-    req.post.comments.push(comment);
-    req.post.save(function(err, post){
-      if(err){return next(err);}
-      
-      res.json(comment); 
-    });
-  });
-});
-
-router.param('comment',function (req, res, next, id) {
-  var query = Comment.findById(id);
-  
-  query.exec(function(err,comment){
-    if (err) { return next(err); }
-    if (!comment) { return next(new Error('can\'t find comment')); }
-    
-    req.comment = comment;
-    return next();
-  });
-});
-
-router.put('/posts/:post/comments/:comment/upvote',auth,function(req, res, next){
-  req.comment.upvote(function(err,comment){
-    if(err){return next(err);}
-    
-    res.json(comment);
-  })
-});
-
-//authentication
+// AUTHENTICATION
 
 router.post('/register', function(req, res, next){
   if(!req.body.username||!req.body.password){
