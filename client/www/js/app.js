@@ -37,6 +37,7 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
     views: {
       'menuContent': {
         templateUrl: 'templates/home.html',
+        controller: 'HomeController'
       }
     }
   })
@@ -102,6 +103,24 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
       'menuContent': {
         templateUrl: 'templates/survey/survey4.html',
         controller: 'SurveyCtrl'
+      }
+    }
+  })
+  .state('app.survey-5', {
+    url: '/survey/5',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/survey/survey5.html',
+        controller: 'SurveyCtrl'
+      }
+    }
+  })
+  .state('app.country', {
+    url: '/country',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/country.html',
+          controller: 'CountryCtrl'
       }
     }
   })

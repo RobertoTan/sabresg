@@ -43,19 +43,55 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('SurveyCtrl',function($scope,$state,$stateParams,survey){
+.controller('SurveyCtrl',function($scope,$state,$stateParams,$ionicPopup,survey){
+  
+  $scope.formData = {};
+  $scope.formData.lengthofstay = 5;
+  
   $scope.done = function(test){
     survey.remove(test);
     var stateName = $state.current.name;
     var currentNum = (parseInt(stateName.slice(-1))+1);
-    if(currentNum<5){ 
+    if(currentNum<6){
+            alert(survey.themes); 
       $state.go("app.survey-"+currentNum);
     } else{
       $state.go("app.home");
       alert(survey.themes);
     }
   }
+  
+  $scope.submitInfo = function(){
+    if(!$scope.formData.budget){
+   var alertPopup = $ionicPopup.alert({
+     title: 'Enter an appropriate budget',
+     });
+
+   alertPopup.then(function(res) {
+     console.log('Thank you for not eating my delicious ice cream cone');
+   });
+    }else{
+      survey.budget = parseInt($scope.formData.budget);
+      survey.lengthofstay = parseInt($scope.formData.lengthofstay);
+      
+      // alert(JSON.stringify(survey));
+      $state.go("app.country");
+    }
+  }
+  
 })
+
+.controller('CountryCtrl',function($scope,survey){
+
+})
+
+.controller('HomeController',function($scope,survey){
+  $scope.reset = function(){
+    survey.reset();
+  }
+})
+
+
 
 .controller('PlaylistsCtrl', function($scope) {
   $scope.playlists = [
