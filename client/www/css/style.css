@@ -1,1 +1,25 @@
 /* Empty. Add your own CSS if you like */
+.icon-span {
+	padding-right: 10px; 
+	padding-left: 10px;
+}
+
+.menu-text {
+	font-weight: 700;
+}
+
+.menu-list {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.menu-header {
+	padding-top: 25px;
+	padding-bottom: 25px;
+	text-align: center;
+}
+
+body {
+	font-family: 'Open Sans', sans-serif;
+}
+
