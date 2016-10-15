@@ -1,10 +1,7 @@
 angular.module('starter.services', [])
 .factory('survey',function() {
     var o = {
-        themes:["GAMBLING","BEACH","HISTORIC","ROMANTIC","SHOPPING","MOUNTAINS","NATIONAL-PARKS","OUTDOORS","THEME-PARK","SKIING"],
-        budget:0,
-        lengthofstay:0
-        
+        themes:["GAMBLING","BEACH","HISTORIC","ROMANTIC","SHOPPING","MOUNTAINS","NATIONAL-PARKS","OUTDOORS","THEME-PARK","SKIING"]
     };
     
     o.remove = function(test){
@@ -15,12 +12,6 @@ angular.module('starter.services', [])
          }
      }
     };
-    
-    o.reset = function(){
-        o.themes=["GAMBLING","BEACH","HISTORIC","ROMANTIC","SHOPPING","MOUNTAINS","NATIONAL-PARKS","OUTDOORS","THEME-PARK","SKIING"],
-        o.budget=0,
-        o.lengthofstay=0
-    }
     
     return o;
 })
