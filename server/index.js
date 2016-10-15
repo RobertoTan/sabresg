@@ -10,10 +10,10 @@ var mongoose = require('mongoose');
 // var User = mongoose.model('User');
 
 // Controllers
-var ctrlPastTrips = require('../controllers/trips.controllers.js');
-var ctrlSurvey = require('../controllers/survey.controllers.js');
-var ctrlPois = require('../controllers/poi.controllers.js');
-var ctrlCountries = require('../controllers/countries.controllers.js');
+var ctrlPastTrips = require('./controllers/trips.controllers.js');
+var ctrlSurvey = require('./controllers/survey.controllers.js');
+var ctrlPois = require('./controllers/poi.controllers.js');
+var ctrlCountries = require('./controllers/countries.controllers.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
