@@ -1,4 +1,6 @@
 angular.module('starter.controllers', [])
+.controller('HomeCtrl', function($scope){
+})
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
@@ -50,7 +52,4 @@ angular.module('starter.controllers', [])
     { title: 'Rap', id: 5 },
     { title: 'Cowbell', id: 6 }
   ];
-})
-
-.controller('PlaylistCtrl', function($scope, $stateParams) {
 });

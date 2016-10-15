@@ -66,7 +66,35 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         templateUrl: 'templates/account.html',
       }
     }
-  });
+  })
+
+  .state('app.survey-weather', {
+    url: '/survey-weather',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/survey/weather.html',
+      }
+    }
+  })
+
+  .state('app.survey.activity', {
+    url: '/survey-activity',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/survey/activity.html',
+      }
+    }
+  })
+
+  .state('app.survey.time', {
+    url: '/survey-time',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/survey/time.html',
+      }
+    }
+  })
+  ;
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/home');
 });
