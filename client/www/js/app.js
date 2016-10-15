@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers'])
+angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -46,6 +46,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     views: {
       'menuContent': {
         templateUrl: 'templates/trips.html',
+       
       }
     }
   })
@@ -68,42 +69,45 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   })
 
-  .state('app.survey-weather', {
-    url: '/survey-weather',
+  .state('app.survey-1', {
+    url: '/survey/1',
     views: {
       'menuContent': {
-        templateUrl: 'templates/survey/weather.html',
+        templateUrl: 'templates/survey/survey1.html',
+        controller: 'SurveyCtrl'
       }
     }
   })
-
-  .state('app.survey.activity', {
-    url: '/survey-activity',
+  .state('app.survey-2', {
+    url: '/survey/2',
     views: {
       'menuContent': {
-        templateUrl: 'templates/survey/activity.html',
+        templateUrl: 'templates/survey/survey2.html',
+        controller: 'SurveyCtrl'
       }
     }
   })
-
-  .state('app.survey.time', {
-    url: '/survey-time',
+  .state('app.survey-3', {
+    url: '/survey/3',
     views: {
       'menuContent': {
-        templateUrl: 'templates/survey/time.html',
+        templateUrl: 'templates/survey/survey3.html',
+        controller: 'SurveyCtrl'
       }
     }
   })
-
-  .state('app.survey-country', {
-    url: '/survey-country',
+  .state('app.survey-4', {
+    url: '/survey/4',
     views: {
       'menuContent': {
-        templateUrl: 'templates/survey/country.html',
+        templateUrl: 'templates/survey/survey4.html',
+        controller: 'SurveyCtrl'
       }
     }
   })
+  
   ;
+
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/home');
 });
