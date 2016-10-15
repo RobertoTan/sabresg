@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Country = mongoose.model('Country');
 
-module.exports.showCountries = function(req, res) {
+module.exports.countriesGetAll = function(req, res) {
 	
 	Country
 		.find()
@@ -20,7 +20,7 @@ module.exports.showCountries = function(req, res) {
 
 };
 
-module.exports.selectCountry = function(req, res) {
+module.exports.countriesGetOne = function(req, res) {
 
 	var countryId = req.params.countryId;
 	console.log("GET countryId", countryId);

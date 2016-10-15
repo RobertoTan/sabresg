@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
-var hotelSchema = mongoose.model('hotelSchema');
-var poiSchema = mongoose.model('poiSchema');
+var Hotel = mongoose.model('Hotel');
+var Poi = mongoose.model('Poi');
 
 var flightSchema = new mongoose.Schema({
 	OriginLocation: {
@@ -16,10 +16,12 @@ var flightSchema = new mongoose.Schema({
 	photos: [String]
 });
 
+mongoose.model('Flight', flightSchema);
+
 var tripSchema = new mongoose.Schema({
-	flight: [flightSchema],
-	hotel: [hotelSchema],
-	placesOfInterest: [poiSchema],
+	flight: [{type:mongoose.Schema.Types.ObjectId, ref: 'Flight'}],
+	hotel: [{type:mongoose.Schema.Types.ObjectId, ref: 'Hotel'}],
+	placesOfInterest: [{type:mongoose.Schema.Types.ObjectId, ref:'Poi'}],
 	days: Number,
 	costLeft: Number,
 	createdOn: {
@@ -28,5 +30,5 @@ var tripSchema = new mongoose.Schema({
 	}
 });
 
-mongoose.model("Trips", tripSchema, 'trips');
+mongoose.model('Trips', tripSchema);
 // name of model, name of schema, mongodb collection

@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
-var trips = mongoose.model('Trips'); // imports the models
+var Trips = mongoose.model('Trips'); // imports the models
+var Hotels = mongoose.model('Hotel');
 
 module.exports.pastTripsGetAll = function(req,res) {
 

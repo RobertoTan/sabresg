@@ -15,7 +15,7 @@ angular.module('starter.controllers', [])
   $scope.loginData = {};
 
   // Create the login modal that we will use later
-  $ionicModal.fromTemplateUrl('templates/login.html', {
+  $ionicModal.fromTemplateUrl('../templates/login.html', {
     scope: $scope
   }).then(function(modal) {
     $scope.modal = modal;
@@ -42,28 +42,3 @@ angular.module('starter.controllers', [])
     }, 1000);
   };
 })
-
-.controller('SurveyCtrl',function($scope,$state,$stateParams,survey){
-  $scope.done = function(test){
-    survey.remove(test);
-    var stateName = $state.current.name;
-    var currentNum = (parseInt(stateName.slice(-1))+1);
-    if(currentNum<5){ 
-      $state.go("app.survey-"+currentNum);
-    } else{
-      $state.go("app.home");
-      alert(survey.themes);
-    }
-  }
-})
-
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
-});

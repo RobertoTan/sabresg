@@ -22,5 +22,5 @@ var poiSchema = new mongoose.Schema({
 	}
 });
 
-mongoose.model("Poi", poiSchema, 'pois'); 
+mongoose.model('Poi', poiSchema); 
 // name of model, name of schema, mongodb collection

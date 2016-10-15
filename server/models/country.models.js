@@ -1,6 +1,6 @@
-var mongoose = require('mongoose')
+var mongoose = require('mongoose');
 
-var countrySchema = new mongoose.schema({
+var countrySchema = new mongoose.Schema({
 	name: {
 		type: String,
 		required: true
@@ -8,7 +8,7 @@ var countrySchema = new mongoose.schema({
 	currency: String,
 	"location": {
 		address: String,
-		coordinated: {
+		coordinates: {
 			type: [Number],
 			index: '2dsphere'
 		}
@@ -16,4 +16,4 @@ var countrySchema = new mongoose.schema({
 	themes: [String]
 });
 
-mongoose.model("Country", countrySchema, 'coutries');
+mongoose.model('Country', countrySchema);

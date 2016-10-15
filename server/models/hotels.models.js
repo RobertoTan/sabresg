@@ -55,5 +55,5 @@ var hotelSchema = new mongoose.Schema({
 	}
 });
 
-mongoose.model("Hotel", hotelSchema, 'hotels'); 
+mongoose.model('Hotel', hotelSchema); 
 // name of model, name of schema, mongodb collection

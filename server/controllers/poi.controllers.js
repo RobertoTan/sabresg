@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var poi = mongoose.model('Poi'); // imports the models
+var Poi = mongoose.model('Poi'); // imports the models
 
 module.exports.poiGetAll = function(req, res) {
 

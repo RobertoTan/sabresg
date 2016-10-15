@@ -3,14 +3,14 @@ var Survey = mongoose.model('Survey'); // imports the models
 
 module.exports.questionsGetPair = function(req, res) {
 
-	var questionId = req.parms.questionId;
+	var questionId = req.params.questionId;
 	console.log("GET questionId", questionId);
 
 	Survey
 		.findById(surveyId)
 		.exec(function(err, question) {
 			var response = {
-				status: 200
+				status: 200,
 				message: question
 			}
 			if (err) {
