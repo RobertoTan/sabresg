@@ -6,20 +6,15 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var mongoose = require('mongoose');
-var passport = require('passport');
+// var passport = require('passport');
 
-
-require('./models/Posts');
-require('./models/Comments');
-require('./models/Users');
-require('./config/passport');
+// require('./config/passport');
 
 
 mongoose.connect('mongodb://localhost/news');
 
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
+var routes = require('./routes/index.js');
 
 var app = express();
 
@@ -37,8 +32,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/users', users);
-app.use(passport.initialize());
+// app.use(passport.initialize());
 
 app.use(function(req, res, next) {
     res.header('Access-Control-Allow-Origin', "*");
