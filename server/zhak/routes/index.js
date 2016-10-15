@@ -10,9 +10,10 @@ var mongoose = require('mongoose');
 // var User = mongoose.model('User');
 
 // Controllers
-var ctrlPastTrips = require('../controllers/pastTrips.controllers.js');
+var ctrlPastTrips = require('../controllers/trips.controllers.js');
 var ctrlSurvey = require('../controllers/survey.controllers.js');
-var ctrlNewTrip = require('../controllers/newTrip.controllers.js')
+var ctrlPois = require('../controllers/poi.controllers.js');
+var ctrlCountries = require('../controllers/countries.controllers.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -21,18 +22,21 @@ router.get('/', function(req, res, next) {
 
 // TRIPS ROUTES
 router
-  .route('/pastTrips')
-  .get(ctrlTrips.pastTripsGetAll)
-  .post(ctrlTrips.pastTripsAddOne);
+  .route('trips/pastTrips')
+  .get(ctrlTrips.pastTripsGetAll);
+
+router
+  .route('trips/confirm')
+  .post(ctrlTrips.pastTripsAddOne)
 
 // SURVEY ROUTES
 router
-  .route('/survey')
-  .get(ctrlSurvey.questionsGetOne);
+  .route('/survey/:questionId')
+  .get(ctrlSurvey.questionsGetPair);
 
 // COUNTRIES ROUTES
 router
-  .route('/selectCountries')
+  .route('/showCountries')
   .get(ctrlCountries.countriesGetAll)
 
 router
