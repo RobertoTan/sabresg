@@ -1,5 +1,24 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['starter.services'])
 .controller('HomeCtrl', function($scope,survey){
+  $scope.reset = function(){
+    survey.reset();
+  }
+})
+
+.controller('CartCtrl', function($scope,$state,trip){
+  
+  $scope.lengthofstay = trip.lengthofstay;
+  
+  $scope.done = function(){
+    $state.go('app.itinerary');
+  }
+  
+  $scope.reset = function(){
+    survey.reset();
+  }
+})
+
+.controller('ItineraryCtrl', function($scope,survey){
   $scope.reset = function(){
     survey.reset();
   }
@@ -57,11 +76,9 @@ angular.module('starter.controllers', [])
     var stateName = $state.current.name;
     var currentNum = (parseInt(stateName.slice(-1))+1);
     if(currentNum<6){
-            alert(survey.themes); 
       $state.go("app.survey-"+currentNum);
     } else{
       $state.go("app.home");
-      alert(survey.themes);
     }
   }
   
@@ -79,7 +96,6 @@ angular.module('starter.controllers', [])
       survey.lengthofstay = parseInt($scope.formData.lengthofstay);
       
       // survey.getTrips();
-      alert(JSON.stringify(survey));
       
       $state.go("app.country");
     }
@@ -87,9 +103,14 @@ angular.module('starter.controllers', [])
   
 })
 
-.controller('CountryCtrl',function($scope,survey,tripsPromise){
+.controller('CountryCtrl',function($scope,$state,survey,tripsPromise){
   
   $scope.trips = survey.trips;
+  
+  $scope.done = function(){
+    $state.go('app.cart');
+  }
+  
 
 })
 

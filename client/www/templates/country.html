@@ -26,7 +26,7 @@
 			<h2>Korea</h2>
 		</div>
 	</div>-->
-	<div ng-repeat="trip in trips" ng-show="trips[0].DestinationLocation" class="card">
+	<div ng-repeat="trip in trips" ng-show="trips[0].DestinationLocation" class="card" ng-click="done(trip)">
         <div class="item item-divider">
         SIN -> {{trip.DestinationLocation}}
         </div>

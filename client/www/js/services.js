@@ -1,4 +1,16 @@
 angular.module('starter.services', [])
+
+.factory('trip',function(){
+    var a = {
+        lengthofstay:3,
+        flight:String,
+        hotel:String,
+        pois:[String]
+    }
+    
+    return a;
+})
+
 .factory('survey',function($http) {
     var o = {
         themes:["GAMBLING","BEACH","HISTORIC","ROMANTIC","SHOPPING","MOUNTAINS","NATIONAL-PARKS","OUTDOORS","THEME-PARK","SKIING"],

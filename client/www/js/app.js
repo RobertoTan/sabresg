@@ -120,6 +120,7 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
     views: {
       'menuContent': {
         templateUrl: 'templates/cart.html',
+        controller: 'CartCtrl'
       }
     }
   })
@@ -129,6 +130,7 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
     views: {
       'menuContent': {
         templateUrl: 'templates/itinerary.html',
+        controller: 'ItineraryCtrl'
       }
     }
   })
