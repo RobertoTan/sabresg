@@ -114,7 +114,6 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
       }
     }
   })
-<<<<<<< HEAD
 
   .state('app.cart', {
     url: '/cart',
