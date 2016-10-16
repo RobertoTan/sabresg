@@ -114,6 +114,7 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
       }
     }
   })
+<<<<<<< HEAD
 
   .state('app.cart', {
     url: '/cart',
@@ -129,6 +130,21 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
     views: {
       'menuContent': {
         templateUrl: 'templates/itinerary.html',
+      }
+    }
+  })
+
+  .state('app.country', {
+    url: '/country',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/country.html',
+        controller: 'CountryCtrl',
+        resolve:{
+          tripsPromise:function(survey){
+            return survey.getTrips();
+          }
+        }
       }
     }
   })

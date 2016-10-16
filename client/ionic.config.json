@@ -1,4 +1,8 @@
 {
   "name": "client",
-  "app_id": "efae49c6"
+  "app_id": "efae49c6",
+  "proxies": [{
+     "path": "/countries",
+     "proxyUrl": "http://2a28d56b.ngrok.io/countries"
+   }]
 }
