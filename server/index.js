@@ -24,7 +24,7 @@ var sabre_dev_studio = new SabreDevStudio({
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.send("hello");
+  res.send()
 });
 
 // SURVEY ROUTES
