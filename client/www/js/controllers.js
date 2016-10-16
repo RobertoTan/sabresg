@@ -1,5 +1,8 @@
 angular.module('starter.controllers', [])
-.controller('HomeCtrl', function($scope){
+.controller('HomeCtrl', function($scope,survey){
+  $scope.reset = function(){
+    survey.reset();
+  }
 })
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
@@ -72,17 +75,21 @@ angular.module('starter.controllers', [])
      console.log('Thank you for not eating my delicious ice cream cone');
    });
     }else{
-      survey.budget = parseInt($scope.formData.budget);
+      survey.maxfare = parseInt($scope.formData.budget);
       survey.lengthofstay = parseInt($scope.formData.lengthofstay);
       
-      // alert(JSON.stringify(survey));
+      // survey.getTrips();
+      alert(JSON.stringify(survey));
+      
       $state.go("app.country");
     }
   }
   
 })
 
-.controller('CountryCtrl',function($scope,survey){
+.controller('CountryCtrl',function($scope,survey,tripsPromise){
+  
+  $scope.trips = survey.trips;
 
 })
 

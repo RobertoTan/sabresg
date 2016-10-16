@@ -114,6 +114,21 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
       }
     }
   })
+  
+  .state('app.country', {
+    url: '/country',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/country.html',
+        controller: 'CountryCtrl',
+        resolve:{
+          tripsPromise:function(survey){
+            return survey.getTrips();
+          }
+        }
+      }
+    }
+  })
   ;
 
   // if none of the above states are matched, use this as the fallback

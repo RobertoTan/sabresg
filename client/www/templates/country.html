@@ -8,7 +8,7 @@
         <li><span></span><div class="photo-text">India</div></li>
     </ul>
   <ion-content style="padding: 30px;">
-  	<div class="list card">
+  	<!--<div class="list card">
 		<div class="item item-avatar" style="padding-left: 16px !important;">
 		<span class="flag-icon flag-icon-cn flag-icon-squared" style="float: left; margin-right: 10px;"></span>
 			<h2>China</h2>
@@ -25,6 +25,17 @@
 		<span class="flag-icon flag-icon-sk flag-icon-squared" style="float: left; margin-right: 10px;"></span>
 			<h2>Korea</h2>
 		</div>
-	</div>
+	</div>-->
+	<div ng-repeat="trip in trips" ng-show="trips[0].DestinationLocation" class="card">
+        <div class="item item-divider">
+        SIN -> {{trip.DestinationLocation}}
+        </div>
+        <div class="item item-text-wrap">
+          ${{trip.LowestFare.Fare}}
+         </div>
+        <!--<div class="item item-divider">
+          I'm a Footer in a Card!
+        </div>-->
+      </div>
   </ion-content>
 </ion-view>
