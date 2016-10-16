@@ -1,22 +1,7 @@
 var mongoose = require('mongoose');
 var Hotel = mongoose.model('Hotel');
 var Poi = mongoose.model('Poi');
-
-var flightSchema = new mongoose.Schema({
-	OriginLocation: {
-		type: String,
-		required: true
-	},
-	LowestFare: {
-		AirlineCodes: [String],
-		Fare: Number
-	},
-	DestinationLocation: String,
-	CurrencyCode: String,
-	photos: [String]
-});
-
-mongoose.model('Flight', flightSchema);
+var Flight = mongoose.model('Flight');
 
 var tripSchema = new mongoose.Schema({
 	flight: [{type:mongoose.Schema.Types.ObjectId, ref: 'Flight'}],

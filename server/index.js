@@ -31,7 +31,8 @@ router
 // FLIGHT ROUTES
 router
   .route('/showFlights/:flightId') // only one
-  .get(ctrlFlights.flightGet)
+  .get(ctrlFlights.flightGet);
+
 router
   .route('/intinerary/trip')
   .post(ctrlFlights.flightAdd);
@@ -39,7 +40,8 @@ router
 // HOTEL ROUTES
 router
   .route('/showHotels/:hotelId') // only one
-  .get(ctrlHotels.hotelsGet)
+  .get(ctrlHotels.hotelsGet);
+  
 router
   .route('/intinerary/trip')
   .post(ctrlHotels.hotelsAdd);

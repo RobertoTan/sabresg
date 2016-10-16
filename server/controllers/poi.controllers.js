@@ -18,6 +18,28 @@ module.exports.poiGetAll = function(req, res) {
 		});
 };
 
+module.exports.poiAddAll = function(req, res) {
+
+	Poi
+		.create({
+			name: req.body.name,
+			activities: [String]
+		}, function(err, poi) {
+			if (err) {
+				console.log("Error creating POI");
+				res
+					.status(400)
+					.json(err);
+			} else {
+				console.log("POI created!", poi);
+				res
+					.status(201)
+					.json(poi);
+			}
+		});
+
+}
+
 
 
 

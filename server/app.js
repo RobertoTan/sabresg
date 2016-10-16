@@ -16,6 +16,7 @@ require('./models/survey.models.js');
 require('./models/poi.models.js');
 require('./models/country.models.js');
 require('./models/hotels.models.js');
+require('./models/flights.models.js');
 require('./models/trips.models.js');
 
 var routes = require('./index.js');
