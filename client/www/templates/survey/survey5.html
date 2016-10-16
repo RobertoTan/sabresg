@@ -1,0 +1,49 @@
+<ion-view view-title="Just a bit more info">
+  <ion-content style="padding: 30px;" content scroll="false">
+	<ul class="cb-slideshow">
+        <li><span></span><div class="photo-text">Dubai</div></li>
+        <li><span></span><div class="photo-text">New York</div></li>
+        <li><span></span><div class="photo-text">Seoul, Korea</div></li>
+        <li><span></span><div class="photo-text">Santorini, Greece</div></li>
+        <li><span></span><div class="photo-text">Maldives</div></li>
+        <li><span></span><div class="photo-text">India</div></li>
+    </ul>
+
+    <!-- QUESTION 1 -->
+    <div id="q1">
+		<div class="list card animated">
+			  <div class="item item-divider">
+    			Budget
+  		</div>
+			<div class="item item-text-wrap">
+			<label class="item item-input item-floating-label">
+				<input type="text" ng-model="formData.budget">
+			</label>
+			</div>
+		<div class="item item-divider">
+    			Duration
+  		</div>	
+			<div class="item item-text-wrap">
+				<div class="item range">
+						<input type="range" name="volume" min="1" max="14" value="formData.lengthofstay" ng-model="formData.lengthofstay">
+				</div>
+				<div class="item item-text-wrap">    				
+  	{{formData.lengthofstay}} Days
+				</div>
+			<button class="button button-block button-positive" ng-click="submitInfo()">
+  			Go!
+		</button>	
+			</div>
+		</div>
+
+	</div>
+
+
+  </ion-content>
+	<!--<div class="bar bar-footer bar-balanced">
+	  <div class="title">
+	  	<p>Your preferences will appear here.</p>
+	  </div>
+	</div>-->
+	<!-- to do preferences show tab-->
+</ion-view>
