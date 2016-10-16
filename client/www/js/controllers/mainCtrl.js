@@ -41,6 +41,7 @@ angular.module('starter.controllers', [])
       $scope.closeLogin();
     }, 1000);
   };
+<<<<<<< HEAD
 })
 
 
@@ -105,3 +106,6 @@ angular.module('starter.controllers', [])
   ];
 });
 // >>>>>>> origin/master:client/www/js/controllers.js
+=======
+})
+>>>>>>> origin/master
