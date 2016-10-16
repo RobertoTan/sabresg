@@ -10,8 +10,6 @@ var mongoose = require('mongoose');
 
 // require('./config/passport');
 
-mongoose.connect('mongodb://zhak:zhak@ds011429.mlab.com:11429/zhak');
-
 var app = express();
 
 var routes = require('./index.js');
@@ -21,6 +19,8 @@ require('./models/poi.models.js');
 require('./models/country.models.js');
 require('./models/hotels.models.js');
 require('./models/trips.models.js');
+
+mongoose.connect('mongodb://zhak:zhak@ds011429.mlab.com:11429/zhak');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
