@@ -92,3 +92,7 @@ body {
 .main-pane {
     width: 100%;
 }
+
+.card {
+    box-shadow: 0 0px 0px 0 rgba(0,0,0,0.16),0 0px 0px 0 rgba(0,0,0,0.12) !important;
+}

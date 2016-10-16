@@ -114,6 +114,24 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
       }
     }
   })
+
+  .state('app.cart', {
+    url: '/cart',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/cart.html',
+      }
+    }
+  })
+
+  .state('app.itinerary', {
+    url: '/itinerary',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/itinerary.html',
+      }
+    }
+  })
   ;
 
   // if none of the above states are matched, use this as the fallback

@@ -1,0 +1,32 @@
+<ion-view view-title="Tripping">
+  <ion-content style="padding-top: 10px; height: 100%;" content scroll="false">
+  		<div class="list card" style="min-height: 100%;">
+			<div class="item item-avatar" style="padding-left: 16px !important;">
+				<div><span style="font-size: 2em;">Tripping Cart <i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
+					<div style="float: right; font-size: 1em !important;">
+						<button class="btn waves-effect waves-light" type="submit" name="action">My trip is done!
+						    <i class="material-icons right"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="item item-body" ondrop="drop(event)" ondragover="allowDrop(event)">
+				<h2>Recommended Points of Interests</h2>
+				<div class="chip" draggable="true" ondragstart="drag(event);" id="1 beach option">
+				    <img src="../placesicon/beach-umbrella-black-silhouette.png">
+				    1 Beach
+				</div>
+				<div class="chip" draggable="true" ondragstart="drag(event);" id="2 beach option">
+				    <img src="../placesicon/beach-umbrella-black-silhouette.png">
+				    2 Beach
+				</div>
+			</div>
+			<div class="item item-body">
+				<h2>Places I am interested in.</h2>
+				<ul class="collection with-header">
+			        <li class="collection-item" style="height: 200px;"><div style="height: 200px;" id="poi" ondrop="drop(event);" ondragover="allowDrop(event)"></div></li>
+			    </ul>
+			</div>
+		</div>
+  </ion-content>
+</ion-view>
