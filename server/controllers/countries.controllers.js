@@ -1,22 +1,29 @@
 var mongoose = require('mongoose');
 var Country = mongoose.model('Country');
 
-module.exports.countriesGetAll = function(req, res) {
+// SABRE API
+
+var SabreDevStudio = require('sabre-dev-studio');
+var sabre_dev_studio = new SabreDevStudio({
+  client_id:     'V1:6cqvyh90cnm7ftvg:DEVCENTER:EXT',
+  client_secret: '4wmBAP1l',
+  uri:           'https://api.test.sabre.com'
+});
+
+module.exports.countriesGetAll = function(req, res, next) {
 	
-	Country
-		.find()
-		.exec(function(err, countries) {
-			if (err) {
-				console.log("Error finding countries.");
-				res
-					.status(500)
-					.json(err);
-			} else {
-				console.log("Found countries", countries.length);
-				res
-					.json(countries)
-			}
-		});
+	sabre_dev_studio.get('/v2/shop/flights/fares?origin='+ 
+    req.query.origin +'&lengthofstay=3%2C4%2C5&theme='+
+    req.query.theme+'&maxfare='+
+    req.query.maxFare+'&pointofsalecountry='+
+    req.query.pointOfSaleCountry, {}, function(error, data) {
+    if (error) {
+      res.send(error);
+    } else {
+      var test = JSON.parse(data);
+      res.send(test.FareInfo.slice(0,5));
+    }
+  });
 
 };
 

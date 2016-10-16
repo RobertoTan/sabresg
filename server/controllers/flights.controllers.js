@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var Flight = require.model('Flight');
+var Flight = mongoose.model('Flight');
 
 module.exports.flightGet = function(req, res) {
 	var id = req.params.flightId
@@ -25,6 +25,12 @@ module.exports.flightGet = function(req, res) {
 			}
 			res
 				.status(response.status)
-				.json(response.message)
+				.json(response.message);
 		});
 }
+
+module.exports.flightAdd = function(req, res) {
+
+	console.log("POST new flight", flightId)
+
+};
