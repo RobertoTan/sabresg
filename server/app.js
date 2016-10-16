@@ -12,13 +12,13 @@ var mongoose = require('mongoose');
 
 var app = express();
 
-var routes = require('./index.js');
-
 require('./models/survey.models.js');
 require('./models/poi.models.js');
 require('./models/country.models.js');
 require('./models/hotels.models.js');
 require('./models/trips.models.js');
+
+var routes = require('./index.js');
 
 mongoose.connect('mongodb://zhak:zhak@ds011429.mlab.com:11429/zhak');
 
